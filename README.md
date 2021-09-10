@@ -8,7 +8,7 @@ Minimal Calcit
 
 1. Install Calcit.
 
-  * For Ubundu 20.20 , download [`bundle_calcit`](http://bin.calcit-lang.org/linux/bundle_calcit) and [`cr`](http://bin.calcit-lang.org/linux/cr) and put into your `$PATH` directory.
+  * For Ubuntu 20.20 , download [`bundle_calcit`](http://bin.calcit-lang.org/linux/bundle_calcit) and [`cr`](http://bin.calcit-lang.org/linux/cr) and put into your `$PATH` directory.
   * For other platforms, install Rust, then use Rust to install from [Source Code](https://github.com/calcit-lang/calcit_runner.rs) via `cargo install --path .` .
 
 2. Run this demo.
