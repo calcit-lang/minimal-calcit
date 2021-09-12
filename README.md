@@ -36,7 +36,7 @@ $ tree
 
 ### Compile to JavaScript
 
-Simple anwser is to replace `cr -1` with `cr -1 --emit-js` and compile into `js-out/*.js`, and bundle code with Webpack or [estrella](https://github.com/rsms/estrella) in Node.js mode. Also remember to install `@calcit/procs` for the runtime for Node.js .
+Simple anwser is to replace `cr -1` with `cr -1 --emit-js` and compile into `js-out/*.js`, and bundle code with Webpack or [esbuild](https://github.com/evanw/esbuild) in Node.js mode. Also remember to install `@calcit/procs` for the runtime for Node.js .
 
 ### License
 
