@@ -16,7 +16,7 @@ Minimal Calcit
 ```
 =>> bundle_calcit && cr -1
 file created at ./compact.cirru
-calcit_runner version: 0.4.16
+calcit version: 0.5.0
 Calling main function: 10
 Calling lib
 took 0.238ms: nil
@@ -36,7 +36,7 @@ $ tree
 
 ### Compile to JavaScript
 
-Simple anwser is to replace `cr -1` with `cr -1 --emit-js` and compile into `js-out/*.js`, and bundle code with Webpack or [esbuild](https://github.com/evanw/esbuild) in Node.js mode. Also remember to install `@calcit/procs` for the runtime for Node.js .
+Simple answer is to replace `cr -1` with `cr -1 --emit-js` and compile into `js-out/*.js`, and bundle code with Webpack or [esbuild](https://github.com/evanw/esbuild) in Node.js mode. Also remember to install `@calcit/procs` for the runtime for Node.js .
 
 ### License
 
