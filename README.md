@@ -1,6 +1,4 @@
-
-Minimal Calcit
-----
+## Minimal Calcit
 
 > This repo demonstrates how to use Calcit without calcit-editor, just use a plain text editor.
 
@@ -8,8 +6,8 @@ Minimal Calcit
 
 1. Install Calcit.
 
-  * For Ubuntu 20.20 , download [`bundle_calcit`](http://bin.calcit-lang.org/linux/bundle_calcit) and [`cr`](http://bin.calcit-lang.org/linux/cr) and put into your `$PATH` directory.
-  * For other platforms, install Rust, then use Rust to install from [Source Code](https://github.com/calcit-lang/calcit_runner.rs) via `cargo install --path .` .
+- For Ubuntu 20.04 LTS , download [`bundle_calcit`](http://bin.calcit-lang.org/linux/bundle_calcit) and [`cr`](http://bin.calcit-lang.org/linux/cr) and put into your `$PATH` directory.
+- For other platforms, install Rust, then use Rust to install from [Source Code](https://github.com/calcit-lang/calcit_runner.rs) via `cargo install --path .` .
 
 2. Run this demo.
 
@@ -21,7 +19,6 @@ Calling main function: 10
 Calling lib
 took 0.238ms: nil
 ```
-
 
 ```bash
 $ tree
@@ -37,6 +34,10 @@ $ tree
 ### Compile to JavaScript
 
 Simple answer is to replace `cr -1` with `cr -1 --emit-js` and compile into `js-out/*.js`, and bundle code with Webpack or [esbuild](https://github.com/evanw/esbuild) in Node.js mode. Also remember to install `@calcit/procs` for the runtime for Node.js .
+
+### About
+
+By default, [Calcit Editor](https://github.com/calcit-lang/calcit-workflow) is recommanded to write code. With Calcit Editor, `compact.cirru` is the snapshot file emitted, which will be consumed by `cr`. To code in separated files, the command `bundle_calcit` is required, as demonstrated in this repo.
 
 ### License
 
