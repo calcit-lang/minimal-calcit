@@ -6,38 +6,56 @@
 
 1. Install Calcit.
 
-- For Ubuntu 20.04 LTS , download [`bundle_calcit`](http://bin.calcit-lang.org/linux/bundle_calcit) and [`cr`](http://bin.calcit-lang.org/linux/cr) and put into your `$PATH` directory.
-- For other platforms, install Rust, then use Rust to install from [Source Code](https://github.com/calcit-lang/calcit_runner.rs) via `cargo install --path .` .
+Get Rust installed first, then run:
+
+```bash
+cargo install calcit
+```
+
+For Ubuntu , download [`bundle_calcit`](http://bin.calcit-lang.org/linux/bundle_calcit) and [`cr`](http://bin.calcit-lang.org/linux/cr) and put into your `$PATH` directory.
 
 2. Run this demo.
 
-```
-=>> bundle_calcit && cr -1
+```bash
+$ bundle_calcit && cr -1
 file created at ./compact.cirru
-calcit version: 0.5.0
 Calling main function: 10
 Calling lib
 took 0.238ms: nil
 ```
 
-```bash
-$ tree
+```
 .
 ├── README.md
-├── compact.cirru # generated from `bundle_calcit` command
+├── compact.cirru # GENERATED from `bundle_calcit`
 ├── package.cirru # metadata file for running `bundle_calcit`
 └── src # source files to construct namespace and code
     ├── lib.cirru
     └── main.cirru
 ```
 
-### Compile to JavaScript
+### Run compiled JavaScript
 
-Simple answer is to replace `cr -1` with `cr -1 --emit-js` and compile into `js-out/*.js`, and bundle code with Webpack or [esbuild](https://github.com/evanw/esbuild) in Node.js mode. Also remember to install `@calcit/procs` for the runtime for Node.js .
+Since Calcit compile js into `js-out/*.mjs` files, you need to add `main.mjs` as entry first:
 
-### About
+```js
+import { main_$x_ } from "./js-out/app.main.mjs";
+main_$x_();
+```
 
-By default, [Calcit Editor](https://github.com/calcit-lang/calcit-workflow) is recommanded to write code. With Calcit Editor, `compact.cirru` is the snapshot file emitted, which will be consumed by `cr`. To code in separated files, the command `bundle_calcit` is required, as demonstrated in this repo.
+then install the runtime dependency, run with Node.js with ES Modules support:
+
+```bash
+cr -1 --emit-js
+yarn add @calcit/procs
+node main.mjs
+```
+
+### Editor
+
+To maintain code in text files, `bundle_calcit` is required as shown in this repo.
+
+Personally, I recommend [Calcit Editor](https://github.com/calcit-lang/editor). With Calcit Editor, `compact.cirru` is the snapshot file emitted as the bundled code. Try workflow from https://github.com/calcit-lang/calcit-workflow .
 
 ### License
 
