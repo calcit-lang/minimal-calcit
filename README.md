@@ -17,7 +17,7 @@ For Ubuntu , download [`bundle_calcit`](http://bin.calcit-lang.org/linux/bundle_
 2. Run this demo.
 
 ```bash
-$ bundle_calcit && cr -1
+$ bundle_calcit -1 && cr -1
 file created at ./compact.cirru
 Calling main function: 10
 Calling lib
