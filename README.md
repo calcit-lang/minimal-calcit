@@ -12,7 +12,7 @@ Get Rust installed first, then run:
 cargo install calcit
 ```
 
-For Ubuntu , download [`bundle_calcit`](http://bin.calcit-lang.org/linux/bundle_calcit) and [`cr`](http://bin.calcit-lang.org/linux/cr) and put into your `$PATH` directory.
+For Ubuntu , download `bundle_calcit` and `cr` from [Releases](https://github.com/calcit-lang/calcit/releases) and put into your `$PATH` directory.
 
 2. Run this demo.
 
@@ -24,7 +24,7 @@ Calling lib
 took 0.238ms: nil
 ```
 
-```
+```bash
 .
 ├── README.md
 ├── compact.cirru # GENERATED from `bundle_calcit`
