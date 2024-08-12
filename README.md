@@ -28,7 +28,7 @@ took 0.238ms: nil
 .
 ├── README.md
 ├── compact.cirru # GENERATED from `bundle_calcit`
-├── package.cirru # metadata file for running `bundle_calcit`
+├── deps.cirru # metadata file for running `bundle_calcit`
 └── src # source files to construct namespace and code
     ├── lib.cirru
     └── main.cirru
@@ -46,7 +46,7 @@ main_$x_();
 then install the runtime dependency, run with Node.js with ES Modules support:
 
 ```bash
-cr -1 --emit-js
+cr -1 js
 yarn add @calcit/procs
 node main.mjs
 ```

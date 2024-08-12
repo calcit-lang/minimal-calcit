@@ -1,0 +1,32 @@
+name: Upload
+
+on:
+  push:
+    branches:
+      - main
+  pull_request: {}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'yarn'
+
+    - uses: calcit-lang/setup-cr@0.0.4
+      with:
+        version: '0.9.2'
+        bundler: true
+
+    - name: "run calcit"
+      run: bundle_calcit -1 && cr -1
+
+    - name: "compiles to js"
+      run: >
+        caps --ci && cr -1 js
+        && yarn
+        && node main.mjs
