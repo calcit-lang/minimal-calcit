@@ -10,22 +10,33 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
-    - uses: actions/setup-node@v4
+    - uses: actions/setup-node@v6
       with:
-        node-version: 20
-        cache: 'yarn'
+        node-version: 24
 
-    - uses: calcit-lang/setup-cr@0.0.8
+    - name: Enable Corepack
+      run: |
+        corepack enable
+        corepack prepare yarn@4.12.0 --activate
+
+    - uses: calcit-lang/setup-calcit@v1.3.0
       with:
-        bundler: true
+        tools: calcit,caps
 
-    - name: "run calcit"
-      run: bundle_calcit -1 && cr -1
+    - name: Verify toolchain
+      run: |
+        yarn install --immutable
+        caps --ci --strict
+        caps deps.cirru verify --toolchain
 
-    - name: "compiles to js"
-      run: >
-        caps --ci && cr -1 js
-        && yarn
-        && node main.mjs
+    - name: Run Calcit
+      run: |
+        calcit calcit.cirru --check-only
+        calcit calcit.cirru
+
+    - name: Compile to JavaScript
+      run: |
+        calcit calcit.cirru js
+        node main.mjs
