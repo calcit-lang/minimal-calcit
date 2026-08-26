@@ -1,6 +1,7 @@
 ## Minimal Calcit
 
-> This repo demonstrates how to use Calcit without calcit-editor, just use a plain text editor.
+> This repo demonstrates a minimal Calcit project using the canonical
+> `calcit.cirru` source snapshot.
 
 ### Usages
 
@@ -12,26 +13,20 @@ Get Rust installed first, then run:
 cargo install calcit
 ```
 
-For Ubuntu , download `bundle_calcit` and `cr` from [Releases](https://github.com/calcit-lang/calcit/releases) and put into your `$PATH` directory.
+Prebuilt binaries are also available from
+[Calcit releases](https://github.com/calcit-lang/calcit/releases).
 
 2. Run this demo.
 
 ```bash
-$ bundle_calcit -1 && cr -1
-file created at ./compact.cirru
-Calling main function: 10
-Calling lib
-took 0.238ms: nil
+calcit calcit.cirru
 ```
 
 ```bash
 .
 ├── README.md
-├── compact.cirru # GENERATED from `bundle_calcit`
-├── deps.cirru # metadata file for running `bundle_calcit`
-└── src # source files to construct namespace and code
-    ├── lib.cirru
-    └── main.cirru
+├── calcit.cirru # canonical source snapshot
+└── deps.cirru # toolchain and module metadata
 ```
 
 ### Run compiled JavaScript
@@ -46,16 +41,20 @@ main_$x_();
 then install the runtime dependency, run with Node.js with ES Modules support:
 
 ```bash
-cr -1 js
+calcit calcit.cirru js
 yarn add @calcit/procs
 node main.mjs
 ```
 
 ### Editor
 
-To maintain code in text files, `bundle_calcit` is required as shown in this repo.
+Use Calcit's structured `query`, `edit`, and `tree` commands to inspect and
+change `calcit.cirru`. Run `calcit docs agents --full` before automated edits.
+The legacy `compact.cirru` and `bundle_calcit` workflow has been retired.
 
-Personally, I recommend [Calcit Editor](https://github.com/calcit-lang/editor). With Calcit Editor, `compact.cirru` is the snapshot file emitted as the bundled code. Try workflow from https://github.com/calcit-lang/calcit-workflow .
+[Calcit Editor](https://github.com/calcit-lang/editor) and
+[calcit-workflow](https://github.com/calcit-lang/calcit-workflow) remain useful
+for interactive and CI workflows.
 
 ### License
 

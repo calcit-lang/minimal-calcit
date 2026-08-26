@@ -1,9 +1,8 @@
 
-.compact-inc.cirru
-compact.cirru
 js-out/
-.calcit-error.cirru
+.calcit/
 
 node_modules/
+.yarn/
 
 /profile.json
