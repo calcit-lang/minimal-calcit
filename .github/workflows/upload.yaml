@@ -27,6 +27,7 @@ jobs:
 
     - name: Verify toolchain
       run: |
+        yarn install --immutable
         caps --ci --strict
         caps deps.cirru verify --toolchain
 
@@ -37,6 +38,5 @@ jobs:
 
     - name: Compile to JavaScript
       run: |
-        yarn install --immutable
         calcit calcit.cirru js
         node main.mjs
