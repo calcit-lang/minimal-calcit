@@ -41,8 +41,8 @@ main_$x_();
 then install the runtime dependency, run with Node.js with ES Modules support:
 
 ```bash
+yarn install --immutable
 calcit calcit.cirru js
-yarn add @calcit/procs
 node main.mjs
 ```
 
