@@ -19,7 +19,7 @@ jobs:
 
     - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
       with:
-        node-version: 24
+        node-version: 24.20.0
 
     - name: Enable Corepack
       run: |
@@ -35,7 +35,7 @@ jobs:
     - name: Verify toolchain
       run: |
         test "$(calcit --version | awk '{print $NF}')" = "0.13.77"
-        node -e 'if (process.versions.node.split(".")[0] !== "24") process.exit(1)'
+        test "$(node --version)" = "v24.20.0"
         test "$(yarn --version)" = "4.12.0"
         yarn install --immutable
         caps --ci --strict
