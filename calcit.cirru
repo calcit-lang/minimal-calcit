@@ -6,9 +6,9 @@
       :modules $ []
       :type-slots $ {}
   :files $ {}
-    |app.lib $ %{} 'FileEntry
+    'app.lib $ %{} 'FileEntry
       :defs $ {}
-        |call-lib $ %{} 'CodeEntry (:doc |)
+        'call-lib $ %{} 'CodeEntry (:doc |)
           :code $ quote
             defn call-lib () $ println "|Calling lib"
           :examples $ []
@@ -17,9 +17,9 @@
               :args $ []
       :ns $ %{} 'NsEntry (:doc |)
         :code $ quote (ns app.lib)
-    |app.main $ %{} 'FileEntry
+    'app.main $ %{} 'FileEntry
       :defs $ {}
-        |main! $ %{} 'CodeEntry (:doc |)
+        'main! $ %{} 'CodeEntry (:doc |)
           :code $ quote
             defn main! ()
               println "|Calling main function:" $ + 1 2 3 4 10
