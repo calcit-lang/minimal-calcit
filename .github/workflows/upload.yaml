@@ -6,37 +6,49 @@ on:
       - main
   pull_request: {}
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
 
-    - uses: actions/setup-node@v6
-      with:
-        node-version: 24
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 24.20.0
 
-    - name: Enable Corepack
-      run: |
-        corepack enable
-        corepack prepare yarn@4.12.0 --activate
+      - name: Enable Corepack
+        run: |
+          corepack enable
+          corepack prepare yarn@4.12.0 --activate
 
-    - uses: calcit-lang/setup-calcit@v1.3.0
-      with:
-        tools: calcit,caps
+      - uses: calcit-lang/setup-calcit@704b3f5cd6f9ce3bd1e0c926dbdd1d181adb8180 # v1.4.0
+        with:
+          version: 0.13.77
+          deps-file: deps.cirru
+          tools: calcit,caps
 
-    - name: Verify toolchain
-      run: |
-        yarn install --immutable
-        caps --ci --strict
-        caps deps.cirru verify --toolchain
+      - name: Verify toolchain
+        run: |
+          test "$(calcit --version | awk '{print $NF}')" = "0.13.77"
+          test "$(node --version)" = "v24.20.0"
+          test "$(yarn --version)" = "4.12.0"
+          yarn install --immutable
+          caps --ci --strict
+          caps deps.cirru verify --toolchain
 
-    - name: Run Calcit
-      run: |
-        calcit calcit.cirru --check-only
-        calcit calcit.cirru
+      - name: Run Calcit
+        run: |
+          calcit calcit.cirru edit format
+          git diff --exit-code -- calcit.cirru
+          calcit calcit.cirru --check-only
+          calcit calcit.cirru
 
-    - name: Compile to JavaScript
-      run: |
-        calcit calcit.cirru js
-        node main.mjs
+      - name: Compile to JavaScript
+        run: |
+          calcit calcit.cirru js
+          node main.mjs
