@@ -7,10 +7,9 @@
 
 1. Install Calcit.
 
-Install the exact Calcit 0.13.77 prebuilt binary from the
-[Calcit 0.13.77 release](https://github.com/calcit-lang/calcit/releases/tag/0.13.77).
-The published 0.13.77 crate does not install on stable Rust; use the release
-binary for this template until that packaging issue is fixed in a later release.
+Install the exact Calcit 0.14.8 prebuilt binary from the
+[Calcit 0.14.8 release](https://github.com/calcit-lang/calcit/releases/tag/0.14.8),
+or install the matching crate with `cargo install calcit --version 0.14.8`.
 
 2. Run this demo.
 
