@@ -44,7 +44,9 @@ node main.mjs
 ### Editor
 
 Use Calcit's structured `query`, `edit`, and `tree` commands to inspect and
-change `calcit.cirru`. Run `calcit docs agents --full` before automated edits.
+change `calcit.cirru`. Run `calcit docs agents --contract` before automated
+mutations; use `calcit docs agents --full` for first orientation or when the
+contract digest changes. The commands are complementary.
 The legacy `compact.cirru` and `bundle_calcit` workflow has been retired.
 
 [Calcit Editor](https://github.com/calcit-lang/editor) and
