@@ -6,3 +6,6 @@ node_modules/
 .yarn/
 
 /profile.json
+dist
+.pnp.cjs
+.pnp.loader.mjs
