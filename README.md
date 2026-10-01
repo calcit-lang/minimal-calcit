@@ -7,9 +7,10 @@
 
 1. Install Calcit.
 
-Install the exact Calcit 0.14.8 prebuilt binary from the
-[Calcit 0.14.8 release](https://github.com/calcit-lang/calcit/releases/tag/0.14.8),
-or install the matching crate with `cargo install calcit --version 0.14.8`.
+Install the exact Calcit 0.27.0 prebuilt binary from the
+[Calcit 0.27.0 release](https://github.com/calcit-lang/calcit/releases/tag/0.27.0),
+or install the matching crate with `cargo install calcit --version 0.27.0`.
+The JavaScript runtime is pinned to the same version in `package.json`.
 
 2. Run this demo.
 
@@ -40,6 +41,11 @@ yarn install --immutable
 calcit calcit.cirru js
 node main.mjs
 ```
+
+CI checks the canonical snapshot and both namespaces, runs the native demo,
+then compiles and runs it with Node.js. This is a native/Node example, not a
+browser frontend: there are no static assets to upload to COS or CDN paths to
+configure.
 
 ### Editor
 

@@ -1,4 +1,4 @@
-name: Upload
+name: Check
 
 on:
   push:
@@ -41,9 +41,13 @@ jobs:
 
       - name: Run Calcit
         run: |
+          test "$(calcit --version)" = "0.27.0"
+          test ! -e compact.cirru
+          test ! -e package.cirru
           calcit calcit.cirru edit format
           git diff --exit-code -- calcit.cirru
           calcit calcit.cirru --check-only
+          calcit calcit.cirru analyze check-public --ns app.main --ns app.lib --summary-only
           calcit calcit.cirru
 
       - name: Compile to JavaScript
