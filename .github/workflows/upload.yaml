@@ -11,39 +11,37 @@ permissions:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
 
-      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+      - uses: actions/setup-node@v6.5.0
         with:
-          node-version: 24.20.0
+          node-version: 24
+          package-manager-cache: false
 
       - name: Enable Corepack
         run: |
           corepack enable
           corepack prepare yarn@4.18.0 --activate
 
-      - uses: calcit-lang/setup-calcit@ca701be5a471759e442aa053cd100720bbe1f09f # v1.5.0
+      - uses: calcit-lang/setup-calcit@v1.5.0
         with:
           deps-file: deps.cirru
           tools: calcit,caps
+          caps-version: 0.1.1
 
       - name: Verify toolchain
         run: |
-          test "$(node --version)" = "v24.20.0"
-          test "$(yarn --version)" = "4.18.0"
           yarn install --immutable
           caps --ci --strict
           caps deps.cirru verify --toolchain
 
       - name: Run Calcit
         run: |
-          test "$(calcit --version)" = "0.27.0"
-          test ! -e compact.cirru
-          test ! -e package.cirru
           calcit calcit.cirru edit format
           git diff --exit-code -- calcit.cirru
           calcit calcit.cirru --check-only

@@ -7,9 +7,9 @@
 
 1. Install Calcit.
 
-Install the exact Calcit 0.27.0 prebuilt binary from the
-[Calcit 0.27.0 release](https://github.com/calcit-lang/calcit/releases/tag/0.27.0),
-or install the matching crate with `cargo install calcit --version 0.27.0`.
+Install the exact Calcit 0.28.0 prebuilt binary from the
+[Calcit 0.28.0 release](https://github.com/calcit-lang/calcit/releases/tag/0.28.0),
+or install the matching crate with `cargo install calcit --version 0.28.0`.
 The JavaScript runtime is pinned to the same version in `package.json`.
 
 2. Run this demo.
