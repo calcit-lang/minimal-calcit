@@ -3,7 +3,7 @@
 > This repo demonstrates a minimal Calcit project using the canonical
 > `calcit.cirru` source snapshot.
 
-状态：native/Node 入门模板，不作为独立业务模块发版。工具链使用正式 Calcit 0.29.1，
+状态：native/Node 入门模板，不作为独立业务模块发版。工具链使用正式 Calcit 0.29.3，
 两个示例函数均为 `Fn() -> Unit`；源码和入口配置以 `calcit.cirru` 为准，
 依赖版本以 `deps.cirru` 为准。
 
@@ -11,9 +11,9 @@
 
 1. Install Calcit.
 
-Install the exact Calcit 0.29.1 prebuilt binary from the
-[Calcit 0.29.1 release](https://github.com/calcit-lang/calcit/releases/tag/0.29.1),
-or install the matching crate with `cargo install calcit --version 0.29.1`.
+Install the exact Calcit 0.29.3 prebuilt binary from the
+[Calcit 0.29.3 release](https://github.com/calcit-lang/calcit/releases/tag/0.29.3),
+or install the matching crate with `cargo install calcit --version 0.29.3`.
 The JavaScript runtime is pinned to the same version in `package.json`.
 
 2. Run this demo.
@@ -46,7 +46,7 @@ calcit calcit.cirru js
 node main.mjs
 ```
 
-CI checks the canonical snapshot and both namespaces, runs the native demo,
+CI checks the canonical snapshot, both namespaces and the strict workflow, runs the native demo,
 then compiles and runs it with Node.js. This is a native/Node example, not a
 browser frontend: there are no static assets to upload to COS or CDN paths to
 configure.

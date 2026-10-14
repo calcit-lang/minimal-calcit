@@ -1,5 +1,5 @@
 
-{} (:calcit-version |0.29.1)
+{} (:calcit-version |0.29.3)
   :init-fn |app.main/main!
   :package |app
   :reload-fn |app.main/main!
