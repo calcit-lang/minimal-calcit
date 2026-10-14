@@ -46,6 +46,7 @@ jobs:
           git diff --exit-code -- calcit.cirru
           calcit calcit.cirru --check-only
           calcit calcit.cirru --check-only --ns app.main --ns app.lib --summary-only
+          calcit calcit.cirru fix --workflow strict --verify
           calcit calcit.cirru
 
       - name: Compile to JavaScript

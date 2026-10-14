@@ -11,7 +11,7 @@
     'app.lib $ %{} 'FileEntry
       :defs $ {} $ 'call-lib
         %{} 'CodeEntry (:doc |)
-          :code $ quote $ defn call-lib () (println "|Calling lib")
+          :code $ quote $ defn call-lib () (println "|Calling lib") &unit
           :examples $ []
           :schema $ :: 'Fn $ {} (:return 'Unit)
             :args $ []
