@@ -1,7 +1,4 @@
 
-{} (:calcit-version |0.29.3)
-  :init-fn |app.main/main!
-  :package |app
-  :reload-fn |app.main/main!
+{} (:calcit-version |0.30.0)
   :version |0.1.3
-  :modules $ []
+  :dependencies $ {}
