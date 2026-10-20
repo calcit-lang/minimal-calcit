@@ -15,7 +15,7 @@ Install the exact Calcit 0.30.1-alpha.5 prebuilt binary from the
 [Calcit 0.30.1-alpha.5 release](https://github.com/calcit-lang/calcit/releases/tag/0.30.1-alpha.5).
 The JavaScript runtime is pinned to the same version in `package.json`.
 
-截至 2026-10-21，正式 0.30.1 release 已存在但尚无 macOS 资产；本轮使用已完成
+截至 2026-10-21（Asia/Shanghai；对应 UTC 日期 2026-10-20），正式 0.30.1 release 已存在但尚无 macOS 资产；本轮使用已完成
 native/Node 对照验收的 alpha.5，不宣称完成正式 0.30.1 跨平台验收。
 
 2. Run this demo.
