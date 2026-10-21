@@ -42,11 +42,13 @@ jobs:
 
       - name: Run Calcit
         run: |
+          set -euo pipefail
           calcit calcit.cirru edit format
           git diff --exit-code -- calcit.cirru
-          calcit calcit.cirru --check-only
-          calcit calcit.cirru --check-only --ns app.main --ns app.lib --summary-only
-          calcit calcit.cirru fix --workflow strict --verify
+          calcit calcit.cirru --check-only --all-defs
+          report="$(calcit calcit.cirru fix --workflow strict --verify --format json)"
+          printf '%s\n' "$report"
+          jq -e '.data.workflow.status? == "passed" and .diagnostics? == []' <<< "$report"
           calcit calcit.cirru
 
       - name: Compile to JavaScript

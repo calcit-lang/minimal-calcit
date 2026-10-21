@@ -3,7 +3,11 @@
 > This repo demonstrates a minimal Calcit project using the canonical
 > `calcit.cirru` source snapshot.
 
-状态：native/Node 入门模板，不作为独立业务模块发版。工具链使用 Calcit 0.30.1-alpha.5，
+使用者影响：CLI 与 `@calcit/procs` 同步配对正式 **0.30.1**，不再使用 alpha.5。
+复制模板后须同步工具链与依赖，并重新生成 `js-out/`，不能用新 runtime 运行旧生成物。
+不改示例逻辑、Snapshot、Node入口或公开类型，不新增检查脚本/测试框架。
+
+状态：native/Node 入门模板，不作为独立业务模块发版。工具链使用正式 Calcit 0.30.1，
 两个示例函数均为 `Fn() -> Unit`；源码和入口配置以 `calcit.cirru` 为准，
 依赖版本以 `deps.cirru` 为准。入口不在依赖清单重复声明。
 
@@ -11,12 +15,11 @@
 
 1. Install Calcit.
 
-Install the exact Calcit 0.30.1-alpha.5 prebuilt binary from the
-[Calcit 0.30.1-alpha.5 release](https://github.com/calcit-lang/calcit/releases/tag/0.30.1-alpha.5).
+Install the exact Calcit 0.30.1 prebuilt binary for a supported platform from the
+[Calcit 0.30.1 release](https://github.com/calcit-lang/calcit/releases/tag/0.30.1).
 The JavaScript runtime is pinned to the same version in `package.json`.
 
-截至 2026-10-21（Asia/Shanghai；对应 UTC 日期 2026-10-20），正式 0.30.1 release 已存在但尚无 macOS 资产；本轮使用已完成
-native/Node 对照验收的 alpha.5，不宣称完成正式 0.30.1 跨平台验收。
+以该release实际提供的宿主平台为准；Linux CI通过不等于所有平台均已提供预编译包或完成验收。
 
 2. Run this demo.
 
@@ -48,15 +51,16 @@ calcit calcit.cirru js
 node main.mjs
 ```
 
-CI checks the canonical snapshot, both namespaces and the strict workflow, runs the native demo,
+CI checks the canonical snapshot, all definitions and the strict workflow, runs the native demo,
 then compiles and runs it with Node.js. This is a native/Node example, not a
 browser frontend: there are no static assets to upload to COS or CDN paths to
 configure.
 
-本轮保留 Snapshot、两个 `Fn() -> Unit` 函数、Node 入口及原 CI；仅同步 CLI/runtime
-与最小 lockfile。0.30.0 和 alpha.5 均通过全定义检查及完整 strict，未发现需要改写的
-旧调用或类型债务。原生和新鲜生成的 Node 输出在两版工具链下完全一致：求和为 20、
-range 为 0 到 99，最后调用库函数。这里只是入门示例，不冒称已有独立单元测试套件。
+本轮保留 Snapshot、两个 `Fn() -> Unit` 函数、Node入口和原native/Node执行，只同步正式
+CLI/runtime与正常生成的lock。原匹配alpha.5图的4个定义/完整strict及native/Node对照通过，
+没有需要强行改写的旧调用；这不是正式版本的替代证据，正式0.30.1以本轮干净CI为准。
+示例应输出求和20、range0到99并调用库函数。这里只是入门示例，不冒称已有独立单元测试套件。
+模板元数据0.1.3保持不变，不另发tag或业务模块版本。
 
 ### Editor
 
