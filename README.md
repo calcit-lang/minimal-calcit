@@ -3,20 +3,23 @@
 > This repo demonstrates a minimal Calcit project using the canonical
 > `calcit.cirru` source snapshot.
 
-使用者影响：CLI 与 `@calcit/procs` 从正式 0.30.1 同步配对正式 **0.31.0**。
+使用者影响：CLI 与 `@calcit/procs` 从正式 0.31.0 同步配对正式 **0.32.0**。
 复制模板后须同步工具链与依赖，并重新生成 `js-out/`，不能用新 runtime 运行旧生成物。
-不改示例逻辑、Snapshot、Node入口或公开类型，不新增检查脚本/测试框架。
+通过官方 `edit format` 更新 Snapshot 类型标注语法；不改示例逻辑、Node入口或公开类型，不新增检查脚本/测试框架。
 
-状态：native/Node 入门模板，不作为独立业务模块发版。工具链使用正式 Calcit 0.31.0，
+状态：native/Node 入门模板，不作为独立业务模块发版。工具链使用正式 Calcit 0.32.0，
 两个示例函数均为 `Fn() -> Unit`；源码和入口配置以 `calcit.cirru` 为准，
 依赖版本以 `deps.cirru` 为准。入口不在依赖清单重复声明。
+
+本地验收：配对 runtime 按原包龄门禁正常安装并生成 lock；原生运行、全定义检查、
+完整 strict、JS 生成与 Node 原流程通过。Linux CI 以精确提交结果为准。
 
 ### Usages
 
 1. Install Calcit.
 
-Install the exact Calcit 0.31.0 prebuilt binary for a supported platform from the
-[Calcit 0.31.0 release](https://github.com/calcit-lang/calcit/releases/tag/0.31.0).
+Install the exact Calcit 0.32.0 prebuilt binary for a supported platform from the
+[Calcit 0.32.0 release](https://github.com/calcit-lang/calcit/releases/tag/0.32.0).
 The JavaScript runtime is pinned to the same version in `package.json`.
 
 以该release实际提供的宿主平台为准；Linux CI通过不等于所有平台均已提供预编译包或完成验收。
@@ -57,7 +60,7 @@ browser frontend: there are no static assets to upload to COS or CDN paths to
 configure.
 
 本轮保留 Snapshot、两个 `Fn() -> Unit` 函数、Node入口和原 native/Node 执行，只同步正式
-CLI/runtime 与正常生成的 lock。原源码使用的求和、range 和库函数无需改写；以正式 0.31.0
+CLI/runtime 与正常生成的 lock。原源码使用的求和、range 和库函数无需改写；以正式 0.32.0
 的格式、全定义、完整 strict、native 和 Node 原流程验收，不关闭默认 proof audit。
 示例应输出求和 20、range 0 到 99 并调用库函数。这里只是入门示例，不冒称已有独立单元测试套件。
 模板元数据 0.1.3 保持不变，不另发 tag 或业务模块版本。
