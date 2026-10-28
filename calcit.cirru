@@ -13,8 +13,7 @@
         %{} 'CodeEntry (:doc |)
           :code $ quote $ defn call-lib () (println "|Calling lib") &unit
           :examples $ []
-          :schema $ :: 'Fn $ {} (:return 'Unit)
-            :args $ []
+          :schema $ quote $ Fn (-> Unit)
       :ns $ %{} 'NsEntry (:doc |)
         :code $ quote $ ns app.lib
     'app.main $ %{} 'FileEntry
@@ -25,8 +24,7 @@
             println $ range 100
             call-lib
           :examples $ []
-          :schema $ :: 'Fn $ {} (:return 'Unit)
-            :args $ []
+          :schema $ quote $ Fn (-> Unit)
       :ns $ %{} 'NsEntry (:doc |)
         :code $ quote $ ns app.main
           :require $ app.lib :refer $ call-lib
