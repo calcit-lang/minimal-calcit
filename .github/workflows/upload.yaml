@@ -44,7 +44,7 @@ jobs:
         run: |
           set -euo pipefail
           calcit calcit.cirru edit format
-          git diff --exit-code -- calcit.cirru
+          git diff --exit-code --quiet -- calcit.cirru
           calcit calcit.cirru --check-only --all-defs
           report="$(calcit calcit.cirru fix --workflow strict --verify --format json)"
           printf '%s\n' "$report"
