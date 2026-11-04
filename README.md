@@ -73,9 +73,9 @@ mutations; use `calcit docs agents --full` for first orientation or when the
 contract digest changes. The commands are complementary.
 The legacy `compact.cirru` and `bundle_calcit` workflow has been retired.
 
-[Calcit Editor](https://github.com/calcit-lang/editor) and
-[calcit-workflow](https://github.com/calcit-lang/calcit-workflow) remain useful
-for interactive and CI workflows.
+[Calcit Editor](https://github.com/calcit-lang/editor) 与新 Snapshot 格式的写回兼容仍在
+[迁移中](https://github.com/calcit-lang/editor/issues/83)；本模板使用上述官方结构化 CLI 维护源码。
+[calcit-workflow](https://github.com/calcit-lang/calcit-workflow) 可作为 CI 工作流参考。
 
 ### License
 
