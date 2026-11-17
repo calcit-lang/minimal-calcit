@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@calcit/procs": "0.43.0-alpha.1"
+    "@calcit/procs": "0.43.0"
   },
   "packageManager": "yarn@4.18.0"
 }
