@@ -28,7 +28,7 @@ jobs:
           corepack enable
           corepack prepare yarn@4.18.0 --activate
 
-      - uses: calcit-lang/setup-calcit@4a5130ea981278fd4f624f2c2cf64e6776742c01 # v1.5.1
+      - uses: calcit-lang/setup-calcit@v1.5.1
         with:
           deps-file: deps.cirru
           tools: calcit,caps
